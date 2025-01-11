@@ -1,0 +1,83 @@
+@import '~react-big-calendar/lib/css/react-big-calendar.css';
+
+.main-form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-big-calendar {
+  width: 98%;
+  height: auto;
+  min-height: 500px;
+}
+
+.rbc-header {
+  padding: 5px 10px;
+  min-width: 80px;
+  text-align: center;
+  background-color: #6596ff; /* Màu nền xanh */
+  color: white; /* Màu chữ trắng */
+  border-right: 0.5px solid rgb(229, 229, 229); /* Đường kẻ phân cách giữa các cột */
+}
+.rbc-header,
+.rbc-toolbar button {
+  padding: 8px 10px; /* Thêm padding cho thoải mái */
+  font-size: 16px; /* Điều chỉnh kích thước phông chữ */
+}
+
+.rbc-toolbar {
+  background-color: white; /* Màu nền trắng */
+  color: black; /* Màu chữ đen */
+  border-bottom: 1px solid #ccc; /* Đường kẻ ngăn cách màu xám nhạt */
+}
+
+.rbc-month-view {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 22px 70px 4px;
+}
+
+.rbc-event {
+  background-color: lightblue; /* Đổi màu sự kiện nếu cần */
+  border-radius: 5px;
+}
+
+.rbc-toolbar-label {
+  min-width: 140px;
+  text-align: center;
+}
+
+.rbc-btn-group button {
+  color: #333;
+}
+
+/* Đặt màu trắng cho các ô ngày trong tháng */
+.rbc-day-bg {
+  background-color: white;
+}
+
+/* Đặt màu sáng hơn cho ngày hôm nay */
+.rbc-today {
+  background-color: rgb(70, 227, 232) !important; /* Sử dụng !important để đảm bảo áp dụng */
+}
+
+/* Đặt màu xám cho các ngày không thuộc tháng hiện tại */
+.rbc-off-range-bg {
+  background-color: #f0f0f0;
+}
+
+/* Điều chỉnh kích thước và kiểu chữ của sự kiện trên lịch */
+.rbc-event {
+  height: 15px; /* Thiết lập chiều cao của sự kiện */
+  padding: 2px; /* Padding nhỏ để text không dính sát vào cạnh */
+  font-size: 12px; /* Giảm kích thước font chữ */
+  overflow: hidden; /* Ẩn text nếu nó dài hơn khung hiển thị */
+  white-space: nowrap; /* Không cho text xuống dòng */
+  text-overflow: ellipsis; /* Hiển thị dấu ... nếu text quá dài */
+}
+
+.rbc-event-content {
+  line-height: 13px;
+  margin-left: 10px;
+}
+

@@ -1,0 +1,456 @@
+  .body-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .work {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #defbff;
+    margin-bottom: 10px;
+    max-width: 100%;
+    overflow: hidden;
+    transition: background-color 0.3s;
+  }
+  
+  .work:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .add-work-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: green;
+  }
+  
+  .work p:last-child {
+    font-weight: bold;
+    color: #007bff;
+  }
+  .work-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Cho phép nội dung xuống dòng */
+    gap: 15px;
+    text-align: left;
+  }
+  
+  .work-info input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+  }
+  
+  .work-checkbox {
+    margin-right: 10px;
+  }
+  
+  
+  .work-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-icon,
+  .delete-icon {
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0s;
+  }
+
+  .edit-icon:hover {
+    color: blue;
+  }
+  .delete-icon:hover {
+    color: red;
+  }
+
+  
+  .add-work-btn {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-work-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .work-box {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bóng mờ mặc định */
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .work-box:hover {
+    background-color: #f9f9f9; /* Thay đổi màu nền khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tăng bóng mờ khi hover */
+    transform: translateY(-4px); /* Dịch chuyển lên nhẹ khi hover */
+    cursor: pointer;
+  }
+
+  .disable-hover .work-box:hover {
+    transform: none; /* Vô hiệu hóa hiệu ứng hover */
+    box-shadow: none; /* Tắt bóng khi hover */
+    background-color: #fff; /* Giữ màu gốc */
+    cursor: default; /* Con trỏ không thay đổi */
+  }
+  
+
+  .work-box h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+
+  .work-box:hover h2 {
+    color: #0056b3; /* Đổi màu tiêu đề khi hover */
+  }
+  
+  
+  .work-list {
+    max-height: 200px; /* Giới hạn chiều cao danh sách */
+    overflow-y: auto; /* Chỉ cuộn dọc khi vượt quá chiều cao */
+    padding: 10px;
+  }
+  
+ 
+  .modal-content .form-row {
+    display: flex;
+    gap: 10px;
+    background-color: white;
+  }
+ 
+  .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 10px;
+  }
+  
+  .modal-content input,
+  .modal-content select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 40px;
+    padding: 0 0 0 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+ 
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .modal-buttons button:first-child {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-buttons button:last-child {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .modal-buttons button:first-child:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-buttons button:last-child:hover {
+    background-color: #aaa;
+  }
+  .modal-task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-task-content {
+    display: flex;
+    width: 80%; /* Gấp đôi chiều rộng so với trước */
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .modal-left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd; /* Đường viền */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+  }
+  
+  .modal-left:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bóng mạnh hơn khi hover */
+  }
+  
+  .modal-left input,
+  .modal-left textarea,
+  .modal-left select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Bóng bên trong */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .modal-left input:focus,
+  .modal-left textarea:focus,
+  .modal-left select:focus {
+    border-color: #007bff; /* Màu viền khi focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Bóng khi focus */
+    outline: none;
+  }
+  
+  .modal-left textarea {
+    resize: none; /* Loại bỏ resize cho textarea */
+  }
+  
+  .modal-left .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Khoảng cách giữa các trường */
+  }
+  .modal-left .form-row-inline {
+    display: flex;
+    flex-wrap: nowrap; /* Không xuống dòng */
+    gap: 10px; /* Khoảng cách giữa các trường */
+    margin-bottom: 5px;
+    
+  }
+  
+  .modal-left .form-row-inline input {
+    flex: 1; /* Đảm bảo các input chia đều chiều rộng */
+    min-width: 0; /* Đảm bảo không bị tràn */
+    
+  }
+  .form-row-inline {
+    display: flex;
+    flex-wrap: nowrap; /* Không xuống dòng */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    width: 100%; /* Đảm bảo hàng chiếm toàn bộ chiều ngang */
+  }
+  
+  .form-row-inline label {
+    margin-right: 10px; /* Khoảng cách giữa nhãn và ô nhập liệu */
+    white-space: nowrap; /* Giữ nhãn không bị xuống dòng */
+  }
+  
+  .form-row-inline input,
+  .form-row-inline select {
+    flex: 1; /* Đảm bảo các phần tử chiếm không gian đều nhau */
+    min-width: 0; /* Đảm bảo không bị tràn */
+    margin: 3px;
+  }
+  .form-row-inline select {
+    margin: 3px;
+  }
+  
+  /* inline type 2 */
+  .form-row-inline-2 {
+    display: flex;
+    flex-wrap: nowrap; /* Không xuống dòng */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    width: 100%; /* Đảm bảo hàng chiếm toàn bộ chiều ngang */
+  }
+  
+  .form-row-inline-2 label {
+    margin-right: 10px; /* Khoảng cách giữa nhãn và ô nhập liệu */
+    white-space: nowrap; /* Giữ nhãn không bị xuống dòng */
+  }
+  
+  .form-row-inline-2 input,
+  .form-row-inline-2 select {
+    flex: 1; /* Đảm bảo các phần tử chiếm không gian đều nhau */
+    min-width: 0; /* Đảm bảo không bị tràn */
+    
+  }
+  .form-row-inline-2 select {
+    margin-bottom: -8px;
+  }
+  
+  
+  /* icon for form-row */
+  .form-row input[type="date"]::-webkit-calendar-picker-indicator {
+    right: -5px;
+  }
+  
+  .custom-repeat-form .form-row {
+    background-color: #f9f9f9;
+    margin-bottom: 5px;
+  }
+  .custom-repeat-form .form-row input {
+    margin-top: 3px;
+    padding: 10px;
+  }
+
+  .modal-content input[type="text"] {
+    padding-left: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content input[type="date"] {
+  padding: 5px 20px; /* Điều chỉnh khoảng cách bên trong */
+  margin: 0; /* Loại bỏ khoảng cách không cần thiết */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến kích thước */
+  position: relative; /* Để định vị icon */
+}
+
+.modal-content input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-left: -25px; /* Điều chỉnh khoảng cách giữa ngày và icon lịch */
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+  
+  .modal-left label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  
+  .divider {
+    width: 1px;
+    background: #ccc;
+    margin: 0 20px;
+  }
+  
+  .modal-right {
+    flex: 1;
+    overflow-y: auto; /* Thanh cuộn dọc */
+    height: 100%; /* Đặt chiều cao chiếm toàn bộ không gian bên phải */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd; /* Đường phân cách */
+  }
+  
+  .modal-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .modal-right ul li {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-right ul li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .modal-right ul li h4 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .modal-right ul li p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 13px;
+  }
+   
+  .custom-repeat-form {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .repeat-day-option {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .custom-repeat-done {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .custom-repeat-done:hover {
+    background: #0056b3;
+  }
+  
+  

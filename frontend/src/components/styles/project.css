@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+
+/* Main Container */
+.main-form {
+  display: flex;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+  background: var(--grey);
+  margin: 15px 0 15px 0;
+  transition: 0.5s;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative; /* Added for correct positioning of buttons */
+}
+
+/* Expand and Collapse Buttons */
+.expand-collapse-buttons {
+  position: absolute;
+  padding-top: 80px; /* Adjust this value to control how far from the top */
+  right: 20px; /* Pushed to the right of the container */
+  display: flex;
+  gap: 10px;
+}
+
+.expand-btn, .collapse-btn {
+  padding: 5px 10px; /* Make buttons smaller */
+  font-size: 14px; /* Reduce font size to make them smaller */
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expand-btn:hover, .collapse-btn:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* View Toggle Buttons */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Khoảng cách giữa các nút */
+  margin: 0px 0;
+}
+
+.view-toggle button {
+  padding: 12px 25px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-toggle button:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.view-toggle .active {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Nhấn mạnh kích thước */
+}
+
+/* Other Styles */
+.project-container {
+  padding: 20px;
+}
+
+.item-list {
+  height: 100%;
+  width: 100%;
+  margin-top: 20px; /* Adjusted to provide space for expand-collapse buttons */
+}
+
+.work-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  background-color: var(--prof);
+  margin-bottom: 7px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.work-item:hover {
+  background-color: #85bdf5;
+}
+
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 32px;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 6px;
+  background-color: #e3e3e3;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin-right: 8px;
+  border: 1px solid #999999;
+}
+
+.progress {
+  height: 100%;
+  background-color: #6af16a;
+  transition: width 0.4s ease-in-out;
+}
+
+.progress-percentage {
+  font-size: 12px;
+  color: #333;
+}
+
+.work-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.expand-bt {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+ul {
+  height: 460px;
+  list-style-type: none;
+  text-align: center;
+  overflow-y: scroll;
+  border: 20px solid var(--bg);
+  border-radius: 20px;
+  background-color: var(--bg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+ul::-webkit-scrollbar {
+  display: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  color: var(--text);
+  background-color: var(--prof);
+  margin-bottom: 7px;
+  height: 40px;
+}
+
+input[type="checkbox"] {
+  margin-right: 15px;
+  accent-color: var(--bg);
+  height: 16px;
+  width: 16px;
+}
+
+#del-bt {
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background-color: var(--prof);
+  cursor: pointer;
+}
+
+ul h3 {
+  color: var(--text);
+  pointer-events: none;
+}
+
+.task-item {
+  margin-left: 30px;
+  margin-right: 20px;
+  height: auto;
+  background-color: #cce3f6;
+  padding: 1px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-item:hover {
+  background-color: #75bcff;
+}
+
+
+.task-details {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.task-details input[type="checkbox"] {
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 12px;
+  width: 12px;
+  accent-color: var(--bg);
+}
+
+.task-delete-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.task-delete-icon-style {
+  color: #007bff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.task-delete-icon-style:hover {
+  transform: scale(1.1);
+}

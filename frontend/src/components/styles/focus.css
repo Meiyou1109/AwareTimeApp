@@ -1,0 +1,993 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+/* :root {
+  --nav : #86A789;
+  --prof: #B2C8BA;
+  --bg: #EBF3E8;
+  --grey: #D2E3C8;
+} */
+.main-form {
+  display: flex;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+  background: var(--grey);
+  margin: 15px 0 15px 0;
+  transition: 0.5s;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  
+}
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  transition: 0.5s;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  background-color: var(--grey);
+}
+.form-row input {
+  width: 90%;
+  height: 40px;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  background-color: var(--serBar);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 30px;
+  color: var(--text);
+  padding-left: 20px;
+}
+#add-todo {
+  border: none;
+  outline: none;
+  margin: 0;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  width: 15%;
+  text-transform: uppercase;
+  border-radius: 30px;
+  color: var(--text);
+  background-color: var(--nav);
+}
+#add-todo:hover {
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+.item-list {
+  height: 100%;
+  width: 100%;
+}
+.item-name {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+}
+ul {
+  height: 460px;
+  list-style-type: none;
+  text-align: center;
+  overflow-y: scroll;
+  border: 20px solid var(--bg);
+  border-radius: 20px;
+  background-color: var(--bg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+ul::-webkit-scrollbar {
+  display: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  color: var(--text);
+  background-color: var(--prof);
+  margin-bottom: 7px;
+  height: 40px;
+}
+input[type="checkbox"] {
+  margin-right: 15px;
+  accent-color: var(--bg);
+  height: 16px;
+  width: 16px;
+}
+#del-bt {
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background-color: var(--prof);
+  cursor: pointer;
+}
+ul h3 {
+  color: var(--text);
+  pointer-events: none;
+}
+
+.focus-modes {
+  flex: 1; /* Chia không gian đồng đều */
+  display: flex;
+  justify-content: flex-end; 
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative; /* Đảm bảo điều chỉnh vị trí theo container */
+   /* Dịch sang lề trái cách 10px */
+  max-height: 50px;
+  min-width: 400px;
+}
+
+
+.focus-mode {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.focus-mode.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.focus-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 20px;
+  align-items: flex-start; /* Căn các thành phần con lên đầu */
+  justify-content: space-between; /* Căn đều các phần */
+  height: 100%; /* Cố định chiều cao */
+  width: 100%;
+  position: relative;
+}
+
+.modal-buttons-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.focus-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.focus-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.focus-button:hover {
+  background-color: #218838;
+}
+
+.modal-right {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff6961;
+}
+
+.modal-close:hover {
+  color: #ff0000;
+}
+
+.pomodoro-timer {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #000;
+  transition: background-color 0.3s ease;
+  
+  grid-column: 2;
+  margin-bottom: 100px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pomodoro-timer p {
+  margin: 15px 0;
+  font-size: 45px;
+  color: #333;
+}
+/*swap button */
+.pomodoro-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.swap-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: #007bff;
+  transition: transform 0.5s ease;
+  display: block; /* Đặt block để tạo dòng riêng */
+  margin: 10px auto; /* Căn giữa icon */
+  text-align: center; /* Đảm bảo icon căn giữa */
+  user-select: none;
+}
+
+.swap-icon:hover {
+  transform: rotate(180deg); /* Hiệu ứng xoay khi hover */
+}
+
+
+.pomodoro-modes {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  margin-left: -20px;
+}
+.stopwatch-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #75888b; /* Màu chữ đồng bộ với giao diện */
+  margin-top: 10px; /* Khoảng cách với các thành phần khác */
+}
+
+
+.pomodoro-mode {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  user-select: none;
+}
+
+.pomodoro-mode.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng nổi */
+}
+
+
+.timer-controls {
+  display: flex;
+  justify-content: center; /* Căn giữa các nút */
+  gap: 15px; /* Khoảng cách giữa các nút */
+}
+
+.timer-controls button {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 8px; /* Bo tròn nút */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng chuyển động khi hover */
+}
+
+.timer-controls button:first-child {
+  background-color: #28a745; /* Màu xanh lá */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.timer-controls button:first-child:hover {
+  background-color: #218838; /* Màu xanh lá đậm khi hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng đậm hơn */
+}
+
+.timer-controls button:last-child {
+  background-color: #dc3545; /* Màu đỏ */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.timer-controls button:last-child:hover {
+  background-color: #c82333; /* Màu đỏ đậm khi hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng đậm hơn */
+}
+
+/* Phần trùng với Project */
+/* Hiệu ứng hover cho Task */
+.task-item-focus {
+  margin: 5px 0;
+  padding: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item-focus:hover {
+  background-color: #d1d1f0;
+  transform: scale(1.02);
+}
+
+/* Hiệu ứng khi Task được chọn */
+.task-item-focus.active {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng hover cho Work */
+.work-item-focus {
+  margin: 5px 0;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.work-item-focus:hover {
+  background-color: #c0e0ff;
+  transform: scale(1.02);
+}
+
+/* Hiệu ứng khi Work được chọn */
+.work-item-focus.active {
+  background-color: #0056b3;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+/* Phần trùng với Project */
+
+
+.task-item-focus {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background: #ffffff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.task-item-focus:hover {
+  background-color: #e8f4ff;
+  transform: scale(1.02);
+}
+
+.task-item-focus.representative {
+  border: 2px solid #007bff;
+  background-color: #f0f8ff;
+}
+
+.task-item-focus h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.task-item-focus p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* trục thời gian */ 
+/* Trục thời gian và danh sách task */
+.timeline-task-container {
+  display: flex; /* Sắp xếp timeline và task list theo chiều ngang */
+  padding-left: 20px;
+}
+
+.timeline-container {
+  margin-top: 30px;
+  width: 100%;/* Chiều rộng cố định cho timeline */
+  position: relative; /* Đặt task hiển thị chính xác theo trục thời gian */
+  border-right: 1px solid #ccc; /* Đường kẻ dọc phân cách */
+  overflow-y: scroll; /* Cho phép cuộn dọc */
+  grid-column: 1;
+  height: 160%; 
+  background-color: white;
+  border-radius: 0px;
+}
+
+/* Ẩn thanh cuộn nhưng vẫn cuộn được */
+.timeline-container::-webkit-scrollbar {
+  width: 0; /* Ẩn thanh cuộn dọc */
+  height: 0; /* Ẩn thanh cuộn ngang (nếu có) */
+}
+
+.timeline {
+  position: relative;
+  height: 1446.5px; /* 1440 phút cho 24 giờ */
+  border-left: 1px solid #ccc; /* Đường dọc cho timeline */
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+  -ms-overflow-style: none; /* Ẩn thanh cuộn trên Internet Explorer và Edge cũ */
+}
+
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50px + 50%); /* Lề trái cộng với chiều rộng task-block */
+  width: 1px; /* Chiều rộng của đường */
+  background-color: #8e8c8c; /* Màu đường */
+  z-index: 1; /* Đảm bảo hiển thị trên các thành phần khác */
+}
+
+
+
+.hour-block {
+  position: absolute;
+  width: 100%;
+}
+
+.hour-marker {
+  position: absolute;
+  left: 5px; /* Căn chỉnh sát bên trái */
+  font-size: 12px;
+  color: gray;
+  top: 0; /* Đặt trên cùng */
+  font-weight: bold;
+}
+
+.hour-divider {
+  position: absolute;
+  left: 50px; /* Dịch sang bên phải nhãn giờ */
+  width: calc(100% - 50px); /* Chiều dài từ sau nhãn giờ đến hết container */
+  height: 1px; /* Độ dày đường kẻ */
+  background-color: rgba(0, 0, 0, 0.08); /* Màu đường kẻ mờ */
+  top: 50%; /* Đặt ở giữa dòng nhãn giờ */
+  top: 6.5px; 
+}
+
+
+.current-time-line {
+  width: 100%;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  z-index: 100;
+  
+}
+
+.task-block {
+  position: absolute;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  width: 50%;
+  padding: 5px;
+  font-size: 12px;
+  left: 50px;
+  transition: background-color 0.3s ease, z-index 0.3s ease;
+}
+
+.task-block.selected {
+  background-color: #87cefa; /* Màu xanh nổi bật cho task được chọn */
+  border-color: #1e90ff;
+  z-index: 10; /* Đẩy nội dung task được chọn lên trên */
+}
+
+/* Gạch đứt của task không được chọn */
+.task-block.dimmed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #8e8c8c; /* Viền gạch đứt */
+  z-index: 15; /* Đảm bảo luôn nổi trên task được chọn */
+  pointer-events: none; /* Không ảnh hưởng đến việc click */
+  background: transparent; /* Không che nội dung bên dưới */
+}
+
+
+.select-task-button {
+  position: absolute;
+  top: -2px;
+  right: -70px; /* Cách `task-block` một khoảng 40px */
+  padding: 3px 8px; /* Điều chỉnh padding */
+  border: none;
+  background-color: #1e90ff;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng nổi */
+}
+
+.select-task-button:hover {
+  background-color: #187bcd; /* Màu nền khi hover */
+}
+
+
+
+.note-container {
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  grid-column: 3;
+  height: calc(160% + 30px); /* Chiếm toàn bộ chiều cao */
+  overflow-y: auto; /* Thanh cuộn nếu cần */
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.note-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.note-button:hover {
+  background-color: #0056b3;
+}
+
+.note-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.note-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.note-input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  resize: none; /* Vô hiệu hóa thay đổi kích thước */
+  overflow-y: auto; /* Hiện thanh cuộn khi vượt quá chiều cao */
+}
+
+.note-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.countdown-task {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex: 1;
+  max-height: 35px;
+  min-width: 190px;
+}
+
+.countdown-task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff; /* Màu chữ trên nền xanh */
+  overflow: hidden; /* Đảm bảo các phần thừa được ẩn */
+}
+
+.progress-bar-todaytask-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Chiếm toàn bộ chiều cao countdown-task */
+  background-color: #e0e0e0; /* Màu nền nhạt hơn */
+  z-index: 1; /* Đặt lớp nền phía sau */
+}
+
+.progress-bar-todaytask {
+  height: 100%; /* Đảm bảo full chiều cao container */
+  background-color: #56eb9e; /* Màu xanh lá */ /* Màu xanh #56daeb */
+  transition: width 0.3s ease-in-out; /* Hiệu ứng khi tăng giảm width */
+  z-index: 1; /* Lớp nền chính */
+}
+
+.countdown-text {
+  position: relative;
+  z-index: 2; /* Đặt văn bản phía trên thanh progress */
+  margin: 0;
+  text-align: center;
+}
+
+
+
+.container-row {
+  display: flex;
+  justify-content: space-between; /* Phân bổ đều các phần tử */
+  align-items: center; /* Căn giữa theo trục dọc */
+  gap: 250px; /* Khoảng cách giữa các phần tử */
+}
+
+.today-data-container {
+  position: relative;
+  flex: 1;
+  justify-content: start;
+  display: inline-block; /* Giữ vị trí nút không bị thay đổi */
+  max-height: 28.4px;
+  min-width: 223.288px;
+}
+
+.today-data-toggle {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.today-data-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 500px; /* Đặt chiều rộng cố định */
+  max-height: 400px; /* Đặt chiều cao tối đa */
+  overflow-y: auto; /* Hiện thanh cuộn khi nội dung vượt quá */
+  z-index: 101;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.today-data-header {
+  display: flex;
+  justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử */
+  align-items: center; /* Căn giữa theo trục dọc */
+}
+
+.view-mode-selector {
+  padding: 2px 5px;
+  margin-bottom: 3px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-mode-selector:hover {
+  background-color: #e0e0e0;
+}
+
+
+.autoselect-container {
+  position: absolute;
+  display: flex;
+  width: 24.3%;
+  height: calc(5%);
+  background-color: #f1f1f1;
+  grid-column: 1;
+  
+  border: 1px solid #3c3c3c;
+  margin-top: 0px;
+  gap: 80px;
+  z-index:2;
+}
+
+.autoselect-button {
+  border: none;
+  font-size: 12px;
+  padding: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.autoselect-button.on {
+  background-color: #4caf50; /* Màu xanh khi ON */
+}
+
+.autoselect-button.off {
+  background-color: #f44336; /* Màu đỏ khi OFF */
+}
+
+
+.autoselect-stats {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stat-value {
+  min-width: 70px;
+  text-align: left; 
+}
+
+
+.autoselect-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #555;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/*for manual mode left view */
+.manual-mode-container {
+  display: flex;
+  flex-grow: 1; /* Đảm bảo chiếm toàn bộ không gian còn lại */
+  gap: 20px; /* Khoảng cách giữa các thành phần */
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: flex-start; /* Căn các thành phần con lên trên */
+  height: 100%; /* Đặt chiều cao tự động */
+}
+
+.task-select {
+  background: #f9f9f9; /* Màu nền giống task-list */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  text-align: left; /* Căn chữ về bên trái */
+  z-index: 10; /* Đảm bảo không bị che bởi các phần khác */
+  height:100%;
+  flex: 1;
+}
+
+.task-select p {
+  margin-bottom: 20px; /* Khoảng cách giữa các dòng */
+  word-break: break-word; /* Đảm bảo nội dung dài sẽ xuống dòng */
+  font-size: 14px; /* Kích thước chữ nhỏ hơn */
+}
+
+.task-select h2 {
+  font-size: 18px;
+  margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
+}
+
+/*for select detail */
+.manual-selected-tasks {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-left:auto;
+  width: 50%;
+
+  grid-column: 2;
+  align-self: start;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.manual-selected-tasks h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  min-width:200px;
+}
+
+.manual-selected-tasks ul {
+  list-style: none;
+  max-height:200px;
+}
+
+.manual-selected-tasks li {
+  display: flex; /* Đặt nội dung trong <li> thành hàng ngang */
+  justify-content: space-between; /* Căn đều tên và thời gian */
+  align-items: center; /* Căn giữa theo trục dọc */
+  gap: 10px; /* Khoảng cách giữa tên và thời gian */
+  
+}
+
+.manual-selected-tasks li span {
+  white-space: nowrap; /* Không cho phép xuống dòng */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+  text-overflow: ellipsis; /* Hiển thị dấu "..." khi nội dung quá dài */
+  max-width: 70%; /* Đặt giới hạn chiều rộng để thời gian luôn hiển thị */
+  display: inline-block; /* Đảm bảo hiệu ứng ellipsis hoạt động */
+}
+
+.manual-selected-tasks li strong {
+  white-space: nowrap; /* Đảm bảo không xuống dòng */
+  color: #333; /* Bạn có thể tùy chỉnh màu sắc */
+}
+
+
+/* row mid of focus-content */
+
+.task-list {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá chiều cao */
+  padding-right: 10px; /* Tạo khoảng cách giữa nội dung và thanh cuộn */ 
+  text-align: center;
+
+  grid-column: 2;
+  /* align-self: start; */
+  height: 100%;
+}
+
+.task-name {
+  position: absolute;
+  top: -2px; /* Khoảng cách 5px từ lề trên */
+  left: 5px; /* Khoảng cách 5px từ lề trái */
+  font-weight: bold; /* Làm đậm chữ để dễ nhìn */
+  color: #333; /* Màu chữ */
+}
+
+.task-table {
+  width: 100%; /* Cho bảng chiếm toàn bộ chiều rộng container */
+  border-collapse: collapse;
+}
+.task-table td, 
+.task-table th {
+  padding: 8px 15px; /* Tăng padding để tạo khoảng cách */
+  text-align: left; /* Căn lề trái */
+}
+
+.task-table th {
+  background-color: #f0f0f0; /* Màu nền nhẹ cho phần header */
+  font-weight: bold;
+  
+}
+
+.task-table {
+  border-collapse: separate; /* Tách các ô ra để border-spacing hoạt động */
+  border-spacing: 0 10px; /* Khoảng cách theo chiều dọc: 10px */
+}
+.task-list-item {
+  cursor: pointer;
+}
+
+.task-list-item.selected {
+  background-color: #d1e8ff; /* Nền xanh nhạt cho task list */
+  color: #374554;
+}
+
+
+.free-mode-container {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  grid-column: 2;
+  overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá chiều cao */
+  padding-right: 10px; /* Tạo khoảng cách giữa nội dung và thanh cuộn */ 
+  text-align: center;
+
+  grid-column: 2;
+  /* align-self: start; */
+  
+}
+
+.free-mode-left,
+.free-mode-right {
+  flex: 1;
+}
+
+.free-mode-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.free-mode-right ul {
+  list-style: none;
+  padding: 0;
+  height: 80%;
+}
+
+.free-mode-right li {
+  padding: 5px;
+  background: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.free-mode-right li.active {
+  background-color: #87cefa;
+  font-weight: bold;
+}
+
+.free-mode-right li:hover {
+  background-color: #d1e8ff;
+}
+.current-record {
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.delete-record-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-record-button:hover {
+  background-color: #d9363e;
+}
+
